@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EditDish extends AppCompatActivity {
     private static final String TAG = "EditDish";
@@ -31,25 +32,35 @@ public class EditDish extends AppCompatActivity {
         temp = (EditText)findViewById(R.id.temp);
 
         time = (EditText)findViewById(R.id.time);
-
-
-
-
+        
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dishText = dishName.getText().toString();
-                tempText = temp.getText().toString();
-                timeText = time.getText().toString();
-                Intent intent = new Intent();
-                Log.d(TAG, "onClick: ");
-                intent.putExtra("Dish_Name",dishText);
-                intent.putExtra("Temperature",tempText);
-                intent.putExtra("Time",timeText);
-                setResult(RESULT_OK, intent);
-                finish();
+                if(isEmpty(dishName) || isEmpty(temp) || isEmpty(time))
+                {
+                    ToastMessage("Enter all the fields");
+                }
+                else {
+                    dishText = dishName.getText().toString();
+                    tempText = temp.getText().toString();
+                    timeText = time.getText().toString();
+                    Intent intent = new Intent();
+                    Log.d(TAG, "onClick: ");
+                    intent.putExtra("Dish_Name", dishText);
+                    intent.putExtra("Temperature", tempText);
+                    intent.putExtra("Time", timeText);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
             }
         });
 
+    }
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
+    public void ToastMessage(String message){
+        Toast.makeText(EditDish.this, message, Toast.LENGTH_SHORT).show();
     }
 }
