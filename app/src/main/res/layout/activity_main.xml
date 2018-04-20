@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.akhil.solarchulha.MainActivity">
+
+    <TextView
+        android:id="@+id/select_dish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Dish"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:paddingTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/vessel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_dish"
+        android:text="Vessel"
+        />
+-
+    <Button
+        android:id="@+id/vessel_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vessel"
+        android:text="Add Dish"/>
+
+    <TextView
+        android:id="@+id/kadai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kadai"
+        android:layout_below="@id/vessel_dishes"
+
+        />
+    <Button
+        android:id="@+id/kadai_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/kadai"
+        android:text="Add Dish"
+        />
+
+
+    <TextView
+        android:id="@+id/pan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pan"
+        android:layout_below="@id/kadai_dishes"
+        />
+
+    <Button
+        android:id="@+id/pan_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/pan"
+        android:text="Add Dish"
+        />
+
+
+    <TextView
+        android:id="@+id/cooker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cooker"
+        android:layout_below="@id/pan_dishes"
+
+        />
+
+    <Button
+        android:id="@+id/cooker_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/cooker"
+        android:text="Add Dish"
+        />
+
+</RelativeLayout>
