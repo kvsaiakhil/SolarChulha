@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -23,14 +25,21 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class DishList extends AppCompatActivity {
 
     private static final String TAG = "DishList";
 
-    String[] dishList = {};
     ArrayList<String> list;
+    //ArrayList<Dish> dlist;
+    //ArrayList<Dish> dlist = new ArrayList<Dish>();
     ArrayAdapter<String> adapter;
+    //DishListAdapter dadapter;
+    String item;
+    String[] simpleArray;
 
 
     @Override
@@ -43,7 +52,10 @@ public class DishList extends AppCompatActivity {
         SwipeMenuListView listView = findViewById(R.id.listView);
 
         adapter = new ArrayAdapter(DishList.this, android.R.layout.simple_list_item_1, list);
+        //dadapter = new DishListAdapter(DishList.this, R.layout.adapter_view_layout, dlist);
+
         listView.setAdapter(adapter);
+
 
 
         Button add = findViewById(R.id.add_new_item);
@@ -70,7 +82,7 @@ public class DishList extends AppCompatActivity {
 
             @Override
             public void create(SwipeMenu menu) {
-                // create "edit" item
+                // create "edit"
                 SwipeMenuItem editItem = new SwipeMenuItem(
                         getApplicationContext());
                 editItem.setBackground(new ColorDrawable(Color.rgb(0xff, 0xff,
@@ -87,22 +99,38 @@ public class DishList extends AppCompatActivity {
                 deleteItem.setWidth(170);
                 deleteItem.setIcon(R.drawable.ic_delete);
                 menu.addMenuItem(deleteItem);
+
             }
         };
 
 // set creator
         listView.setMenuCreator(creator);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Toast.makeText(DishList.this,Integer.toString(position+1)+ " Item Clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+
+
+
                 switch (index) {
                     case 0:
-                        // edit
+                     //edit
                         break;
                     case 1:
                         adapter.remove(list.get(position));
+                        //dlist.remove(position);
                         adapter.notifyDataSetChanged();
+                        //dadapter.notifyDataSetChanged();
+                        //stringList(list);
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -117,13 +145,22 @@ public class DishList extends AppCompatActivity {
         if (requestCode == 1000)
         {
             if(resultCode==Activity.RESULT_OK) {
-                String item = "             "+data.getStringExtra("Dish_Name") +"                    "+ data.getStringExtra("Temperature")+ "                    "+ data.getStringExtra("Time");
+                item = "             "+data.getStringExtra("Dish_Name") +"                    "+ data.getStringExtra("Temperature")+ "                    "+ data.getStringExtra("Time");
+                //Dish item = new Dish(data.getStringExtra("Dish_Name"),data.getStringExtra("Temperature"),data.getStringExtra("Time"));
                 Log.d(TAG, "onActivityResult: " + item);
-                Dish it = new Dish(data.getStringExtra("Dish_Name"),data.getStringExtra("Temperature"),data.getStringExtra("Time"));
-                Log.d(TAG, "onActivityResult: DishName " + it.getDishName().toString());
-                Log.d(TAG, "onActivityResult: Temperature" + it.getTemp().toString());
-                Log.d(TAG, "onActivityResult: Time" + it.getTime().toString());
+                Dish ditem = new Dish();
+                ditem.setDishName(ditem.getDishName());
+                ditem.setTemp(ditem.getTemp());
+                ditem.setTime(ditem.getTime());
+                //dlist.add(ditem);
+                //dadapter.notifyDataSetChanged();
+                Log.d(TAG, "onActivityResult: DishName " + ditem.getDishName());
+                Log.d(TAG, "onActivityResult: Temperature" + ditem.getTemp());
+                Log.d(TAG, "onActivityResult: Time" + ditem.getTime());
                 list.add(item);
+                //stringList(list);
+                //Alist.set(0,it);
+                //Log.d(TAG, "onActivityResult:" + Alist.toString());
                 adapter.notifyDataSetChanged();
             }
         }
@@ -149,5 +186,10 @@ public class DishList extends AppCompatActivity {
         if (list == null) {
             list = new ArrayList<>();
         }
+    }
+
+    public void stringList(ArrayList list){
+        simpleArray = new String[ list.size() ];
+        list.toArray( simpleArray );
     }
 }

@@ -32,6 +32,7 @@ public class EditDish extends AppCompatActivity {
         temp = (EditText)findViewById(R.id.temp);
 
         time = (EditText)findViewById(R.id.time);
+
         
         save.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.baoyz.swipemenulistview.SwipeMenuListView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         Button kadaiDishes = findViewById(R.id.kadai_dishes);
         Button panDishes = findViewById(R.id.pan_dishes);
         Button cookerDishes = findViewById(R.id.cooker_dishes);
+
+        SwipeMenuListView listView1 = findViewById(R.id.vessel_item);
+        SwipeMenuListView listView2 = findViewById(R.id.kadai_item);
+        SwipeMenuListView listView3 = findViewById(R.id.pan_item);
+        SwipeMenuListView listView4 = findViewById(R.id.cooker_item);
 
         vesselDishes.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,11 +9,11 @@ public class Dish {
     private String temp;
     private String time;
 
-    public Dish(String dishName, String temp, String time) {
+    /*public Dish(String dishName, String temp, String time) {
         this.dishName = dishName;
         this.temp = temp;
         this.time = time;
-    }
+    }*/
 
     public String getDishName() {
         return dishName;
@@ -38,4 +38,5 @@ public class Dish {
     public void setTime(String time) {
         this.time = time;
     }
+
 }

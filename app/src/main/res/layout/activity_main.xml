@@ -18,72 +18,124 @@
         />
 
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/vessel"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="100dp"
         android:layout_below="@id/select_dish"
+        android:layout_alignParentStart="true"
         android:text="Vessel"
-        />
+        android:layout_marginTop="30dp"
+        android:textSize="25sp" />
+
 -
+
     <Button
         android:id="@+id/vessel_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/vessel"
-        android:text="Add Dish"/>
+        android:layout_toRightOf="@id/vessel"
+        android:layout_below="@id/select_dish"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish" />
+
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/vessel"
+        android:layout_marginTop="15dp"
+        android:id="@+id/vessel_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/kadai"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/vessel"
+        android:layout_marginTop="75dp"
         android:text="Kadai"
-        android:layout_below="@id/vessel_dishes"
+        android:textSize="25sp" />
 
-        />
+
     <Button
         android:id="@+id/kadai_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_toRightOf="@id/kadai"
+        android:layout_below="@id/vessel"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish" />
+
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
         android:layout_below="@id/kadai"
-        android:text="Add Dish"
-        />
+        android:layout_marginTop="15dp"
+        android:id="@+id/kadai_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
 
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/pan"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@+id/kadai"
+        android:layout_marginTop="75dp"
         android:text="Pan"
-        android:layout_below="@id/kadai_dishes"
-        />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/pan_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/pan"
+        android:layout_toRightOf="@id/pan"
+        android:layout_below="@id/kadai"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
         android:text="Add Dish"
         />
 
 
-    <TextView
-        android:id="@+id/cooker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cooker"
-        android:layout_below="@id/pan_dishes"
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/pan"
+        android:layout_marginTop="15dp"
+        android:id="@+id/pan_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
-        />
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:id="@+id/cooker"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@+id/pan"
+        android:layout_marginTop="75dp"
+        android:text="Cooker"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/cooker_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/cooker"
+        android:layout_toRightOf="@id/cooker"
+        android:layout_below="@id/pan"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
         android:text="Add Dish"
+        />
+
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/cooker"
+        android:layout_marginTop="15dp"
+        android:id="@+id/cooker_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         />
 
 </RelativeLayout>
