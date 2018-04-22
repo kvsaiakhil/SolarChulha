@@ -134,14 +134,38 @@ public class DishList extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(list);
-        editor.putString("task list", json);
+
+        String dishType = MainActivity.dishPreference.getString(MainActivity.DISH_SELECTED, null);
+
+        if(dishType.equals("vessel")){
+            editor.putString("vessel list", json);
+        }else if(dishType.equals("kadai")){
+            editor.putString("kadai list", json);
+        }else if(dishType.equals("pan")){
+            editor.putString("pan list", json);
+        }else{
+            editor.putString("cooker list", json);
+        }
+
         editor.apply();
     }
 
     private void loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("task list", null);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        String dishType = MainActivity.dishPreference.getString(MainActivity.DISH_SELECTED, null);
+        String json = "";
+
+        if(dishType.equals("vessel")){
+            json = sharedPreferences.getString("vessel list", null);
+        }else if(dishType.equals("kadai")){
+            json = sharedPreferences.getString("kadai list", null);
+        }else if(dishType.equals("pan")){
+            json = sharedPreferences.getString("pan list", null);
+        }else{
+            json = sharedPreferences.getString("cooker list", null);
+        }
+
         Type type = new TypeToken<ArrayList<String>>() {
         }.getType();
         list = gson.fromJson(json, type);

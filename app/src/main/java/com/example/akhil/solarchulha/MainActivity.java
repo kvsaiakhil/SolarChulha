@@ -1,6 +1,7 @@
 package com.example.akhil.solarchulha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static SharedPreferences dishPreference;
+    public static String DISH_SELECTED;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,11 +20,13 @@ public class MainActivity extends AppCompatActivity {
         Button kadaiDishes = findViewById(R.id.kadai_dishes);
         Button panDishes = findViewById(R.id.pan_dishes);
         Button cookerDishes = findViewById(R.id.cooker_dishes);
+        dishPreference = getSharedPreferences("Dish preferences", MODE_PRIVATE);
 
         vesselDishes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DishList.class);
+                dishPreference.edit().putString(DISH_SELECTED, "vessel").apply();
                 startActivity(intent);
             }
         });
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DishList.class);
+                dishPreference.edit().putString(DISH_SELECTED, "kadai").apply();
                 startActivity(intent);
             }
         });
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DishList.class);
+                dishPreference.edit().putString(DISH_SELECTED, "pan").apply();
                 startActivity(intent);
             }
         });
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DishList.class);
+                dishPreference.edit().putString(DISH_SELECTED, "cooker").apply();
                 startActivity(intent);
             }
         });
