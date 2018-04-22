@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,146 +11,131 @@
         android:id="@+id/select_dish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="5dp"
         android:text="Select Dish"
+        android:layout_centerHorizontal="true"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
+        android:paddingTop="5dp"
+        />
 
-    <ImageView
-        android:id="@+id/vessel_image"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223"
-        app:srcCompat="@drawable/vessel" />
+    <TextView
+        android:paddingLeft="10dp"
+        android:id="@+id/vessel"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@id/select_dish"
+        android:layout_alignParentStart="true"
+        android:text="Vessel"
+        android:layout_marginTop="30dp"
+        android:textSize="25sp" />
+
+-
 
     <Button
         android:id="@+id/vessel_dishes"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Add vessel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vessel_image"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_toRightOf="@id/vessel"
+        android:layout_below="@id/select_dish"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish" />
 
-    <ImageView
-        android:id="@+id/kadai_image"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223"
-        app:srcCompat="@drawable/some" />
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/vessel"
+        android:layout_marginTop="15dp"
+        android:id="@+id/vessel_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:id="@+id/kadai"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vessel"
+        android:layout_marginTop="75dp"
+        android:text="Kadai"
+        android:textSize="25sp" />
+
 
     <Button
         android:id="@+id/kadai_dishes"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Add Kadai"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toEndOf="@+id/vessel_dishes"
-        app:layout_constraintTop_toBottomOf="@+id/kadai_image"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_toRightOf="@id/kadai"
+        android:layout_below="@id/vessel"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish" />
 
-    <ImageView
-        android:id="@+id/pan_image"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vessel_dishes"
-        app:layout_constraintVertical_bias="0.2"
-        app:srcCompat="@drawable/pan" />
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/kadai"
+        android:layout_marginTop="15dp"
+        android:id="@+id/kadai_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:id="@+id/pan"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@+id/kadai"
+        android:layout_marginTop="75dp"
+        android:text="Pan"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/pan_dishes"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Add Pan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pan_image"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_toRightOf="@id/pan"
+        android:layout_below="@id/kadai"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish"
+        />
 
-    <ImageView
-        android:id="@+id/cooker_image"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toEndOf="@+id/pan_image"
-        app:layout_constraintTop_toBottomOf="@+id/kadai_dishes"
-        app:layout_constraintVertical_bias="0.2"
-        app:srcCompat="@drawable/cooker" />
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/pan"
+        android:layout_marginTop="15dp"
+        android:id="@+id/pan_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:id="@+id/cooker"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_below="@+id/pan"
+        android:layout_marginTop="75dp"
+        android:text="Cooker"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/cooker_dishes"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Add Cooker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toEndOf="@+id/pan_dishes"
-        app:layout_constraintTop_toBottomOf="@+id/cooker_image"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_toRightOf="@id/cooker"
+        android:layout_below="@id/pan"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:text="Add Dish"
+        />
 
-</android.support.constraint.ConstraintLayout>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_below="@id/cooker"
+        android:layout_marginTop="15dp"
+        android:id="@+id/cooker_item"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        />
+
+</RelativeLayout>

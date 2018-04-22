@@ -36,7 +36,11 @@ public class DishListAdapter extends ArrayAdapter<Dish> {
         String temp = getItem(position).getTemp();
         String time = getItem(position).getTime();
 
-        Dish dish = new Dish(dishName,temp,time);
+        Dish dish = new Dish();
+        dish.setDishName(dishName);
+        dish.setTemp(temp);
+        dish.setTime(time);
+
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent,false);
